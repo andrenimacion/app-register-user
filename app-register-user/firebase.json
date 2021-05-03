@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "dist/app-register-user",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
