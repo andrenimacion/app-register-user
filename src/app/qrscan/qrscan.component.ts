@@ -36,30 +36,52 @@ export class QrscanComponent implements OnInit {
     constructor(  public dataJorn: GestJornService ) {
 
     }
-    public camera;
-    public codJor: string = '----';
+    public camera: string = 'back';
+    public codJor: string = '---';
     public devices: any = [];
+    public messageCam: string;
+
+
     ngAfterViewInit(): void {
 
+      this.cameraControl(this.camera);
+
+    }
+
+
+    cameraControl(a) {
       this.qrScannerComponent.getMediaDevices().then(devices => {
-        console.log(devices);
+
+        //console.log(devices);
         const videoDevices: MediaDeviceInfo[] = [];
 
         for (const device of devices) {
             if (device.kind.toString() === 'videoinput') {
                 videoDevices.push(device);
-                console.log(videoDevices);
+                // console.log(videoDevices);
                 this.devices = videoDevices;
             }
         }
 
-        if (videoDevices.length > 0){
+        if (videoDevices.length >= 0) {
+          console.log(videoDevices.length)
             let choosenDev;
-            for (const dev of videoDevices){
-                if (this.camera) {
+
+            //console.log(videoDevices);
+
+            for (const dev of videoDevices) {
+
+                if (dev.label.includes(a)) {
                     choosenDev = dev;
+                    this.messageCam = 'Si tiene camara posterior';
                     break;
                 }
+
+                else {
+                  choosenDev = dev;
+                  this.messageCam = 'No tiene camara posterior';
+                }
+
             }
 
             if (choosenDev) {
@@ -67,12 +89,7 @@ export class QrscanComponent implements OnInit {
             }
 
             else {
-
               this.qrScannerComponent.chooseCamera.next(videoDevices[0]);
-              // for( let i = 0; i <= videoDevices.length; i ++) {
-              //     this.devices.push(videoDevices[i].deviceId);
-              //     alert(this.devices);
-              //   }
             }
 
         }
@@ -91,8 +108,8 @@ export class QrscanComponent implements OnInit {
 
     changeCamera(a) {
       this.camera = a;
+      this.cameraControl(a);
       console.log(this.camera);
-      return this.camera;
     }
 
     public arrJorn:any = []

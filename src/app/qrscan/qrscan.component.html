@@ -22,50 +22,42 @@
 
 </mat-menu>
 <div id="dispositivos" style="font-size: 8pt;">
-    <strong>Cámaras reconocidas:</strong>
-    <div *ngFor="let disp of devices">
-        <div (click)="changeCamera(disp.label)">
-            <strong>Cámara [{{disp.label}}]:</strong> {{disp.deviceId}}
+
+    <app-labores id="appLabores" *ngIf="pLabores"></app-labores>
+    <app-ingresos id="appIngresos" *ngIf="pIngresado"></app-ingresos>
+    <!--conts-->
+    <div class=" congen container-fluid" id="scannerQR" *ngIf="scannerQR">
+
+        <div class="contsQR animated fadeIn fast">
+            <div class="btnCamSetts">
+                <div class="rec btn btn-warning" (click)="reiniciarQR()">
+                    <mat-icon> published_with_changes </mat-icon>Recargar Lector-QR
+                </div>
+                <div (click)="changeCamera('front')" class="camCh">
+                    <mat-icon>flip_camera_ios</mat-icon>
+                </div>
+            </div>
+            <qr-scanner [debug]="false" [canvasWidth]="300" [canvasHeight]="280" [stopAfterScan]="true" [updateTime]="500"> </qr-scanner>
+            <label for="codJo"># Jornalero:</label>
+            <br>
+            <input type=" text " id="codJor " style="text-align: center; " class="form-control " disabled [value]="codJor ">
         </div>
-    </div>
-</div>
-<app-labores id="appLabores" *ngIf="pLabores"></app-labores>
-<app-ingresos id="appIngresos" *ngIf="pIngresado"></app-ingresos>
-<!--conts-->
-<div class=" congen container-fluid" id="scannerQR" *ngIf="scannerQR">
 
-    <div class="contsQR animated fadeIn fast">
-        <div class="rec btn btn-warning" (click)="reiniciarQR()">
-            <mat-icon> published_with_changes </mat-icon>Recargar Lector-QR
+        <div class="dpix p-3 ">
+            <div class="title ">
+                <mat-icon> account_box </mat-icon>
+                Trabajador:
+            </div>
+            <ul class="list-group list-group-flus+h ">
+                <li class="list-group-item ">Nombre:<strong> {{nombre}} </strong></li>
+                <li class="list-group-item ">Cédula:<strong> {{cedula}} </strong></li>
+                <li class="list-group-item ">Entrada:<strong> {{hora | date: 'short'}} </strong></li>
+            </ul>
         </div>
-        <qr-scanner [debug]="false" [canvasWidth]="300" [canvasHeight]="280" [stopAfterScan]="true" [updateTime]="500"> </qr-scanner>
-        <label for="codJor">
-          <strong>Jornalero Num.: </strong>
-        </label>
-        <br>
-        <input type="text" id="codJor" style="text-align: center;" class="form-control" disabled [value]="codJor">
+
     </div>
 
-    <div class="dpix p-3">
-        <div class="title">
-            <mat-icon> account_box </mat-icon>
-            Trabajador:
-        </div>
-        <ul class="list-group list-group-flus+h">
-            <li class="list-group-item">Nombre:<strong> {{nombre}} </strong></li>
-            <li class="list-group-item">Cédula:<strong> {{cedula}} </strong></li>
-            <li class="list-group-item">Entrada:<strong> {{hora | date: 'short'}} </strong></li>
-        </ul>
-    </div>
-
-</div>
-
-<p style="padding: 5px; font-size: 8pt; float: right;" title="Version prueba beta,
-          Se esta añadiendo la data a indexed DB de entrada y salida.
-          Próxima actualización analizaremos la data para poder gestionar
-           de mejor manera se es entrada y salida
-          Reconocimiento de camaras">
-
-    versión: [beta] 1.0.1.9
-
-</p>
+    <p style="padding: 5px; font-size: 8pt; float: right; " title="Version prueba beta, Se esta añadiendo la data a indexed DB de entrada y salida. Próxima actualización analizaremos la data para poder gestionar de mejor manera se es entrada y salida Reconocimiento
+            de camaras ">
+        versión: [beta] 1.0.2.2
+    </p>
