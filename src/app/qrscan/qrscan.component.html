@@ -1,0 +1,71 @@
+<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+  <mat-icon>more_vert</mat-icon>
+</button>
+<mat-menu #menu="matMenu" class="m">
+    <button mat-menu-item (click)="show(false, false, true)">
+    <mat-icon>qr_code_scanner</mat-icon>
+    <span>Scanner QR</span>
+  </button>
+    <button mat-menu-item (click)="show(false, true, false)">
+    <mat-icon>assignment</mat-icon>
+    <span>Personal ingresado</span>
+  </button>
+    <!-- <button mat-menu-item disabled>
+    <mat-icon>voicemail</mat-icon>
+    <span>Check voice mail</span>
+  </button> -->
+    <button mat-menu-item (click)="show(true, false, false)">
+
+    <mat-icon>account_balance_wallet</mat-icon>
+    <span>Tabla de Valores</span>
+  </button>
+
+</mat-menu>
+<div id="dispositivos" style="font-size: 8pt;">
+    <strong>Cámaras reconocidas:</strong>
+    <div *ngFor="let disp of devices">
+        <div (click)="changeCamera(disp.label)">
+            <strong>Cámara [{{disp.label}}]:</strong> {{disp.deviceId}}
+        </div>
+    </div>
+</div>
+<app-labores id="appLabores" *ngIf="pLabores"></app-labores>
+<app-ingresos id="appIngresos" *ngIf="pIngresado"></app-ingresos>
+<!--conts-->
+<div class=" congen container-fluid" id="scannerQR" *ngIf="scannerQR">
+
+    <div class="contsQR animated fadeIn fast">
+        <div class="rec btn btn-warning" (click)="reiniciarQR()">
+            <mat-icon> published_with_changes </mat-icon>Recargar Lector-QR
+        </div>
+        <qr-scanner [debug]="false" [canvasWidth]="300" [canvasHeight]="280" [stopAfterScan]="true" [updateTime]="500"> </qr-scanner>
+        <label for="codJor">
+          <strong>Jornalero Num.: </strong>
+        </label>
+        <br>
+        <input type="text" id="codJor" style="text-align: center;" class="form-control" disabled [value]="codJor">
+    </div>
+
+    <div class="dpix p-3">
+        <div class="title">
+            <mat-icon> account_box </mat-icon>
+            Trabajador:
+        </div>
+        <ul class="list-group list-group-flus+h">
+            <li class="list-group-item">Nombre:<strong> {{nombre}} </strong></li>
+            <li class="list-group-item">Cédula:<strong> {{cedula}} </strong></li>
+            <li class="list-group-item">Entrada:<strong> {{hora | date: 'short'}} </strong></li>
+        </ul>
+    </div>
+
+</div>
+
+<p style="padding: 5px; font-size: 8pt; float: right;" title="Version prueba beta,
+          Se esta añadiendo la data a indexed DB de entrada y salida.
+          Próxima actualización analizaremos la data para poder gestionar
+           de mejor manera se es entrada y salida
+          Reconocimiento de camaras">
+
+    versión: [beta] 1.0.1.9
+
+</p>

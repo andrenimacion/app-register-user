@@ -1,0 +1,17 @@
+table {
+    font-size: 10pt;
+    position: absolute;
+}
+
+.titleLab {
+    /* padding: 15px; */
+    float: right;
+    width: 220px;
+    text-align: center;
+    height: 40px;
+    padding: 10px;
+    background-color: rgb(243, 84, 35);
+    color: white;
+    display: flex;
+    align-items: flex-end;
+}

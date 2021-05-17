@@ -1,0 +1,61 @@
+<div class="titleLab">
+    <mat-icon> supervisor_account </mat-icon>
+    Personal
+</div>
+<div class="dashboardPersonal container-fluid mt-4 mb-4">
+    <div class="dash">
+        <div class="titleHeadLeft">
+            <mat-icon>chevron_right</mat-icon>
+            Entrada Trabajadores
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Cédula</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Num. Jornalero</th>
+                    <th scope="col" class="tE">
+                        <!-- <mat-icon id="wE"> watch_later </mat-icon> -->
+                        Hora Entrada</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let b of arrCursor">
+                    <th scope="row">{{b.cedula}}</th>
+                    <td>{{b.nombre}} {{b.apellido}}</td>
+                    <td>{{b.codjor}}</td>
+                    <td>{{b.hora | date: 'short'}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="dash">
+        <div class="titleHeadRight">
+            <mat-icon>chevron_left</mat-icon>
+            Salida Trabajadores
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Cédula</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Num. Jornalero</th>
+                    <th scope="col">Valor</th>
+                    <th scope="col">Opciones</th>
+                    <th scope="col" class="tE">
+                        <!-- <mat-icon id="wE"> watch_later </mat-icon> -->
+                        Hora Salida</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <!-- <th scope="row">{{b.cedula}}</th>
+                    <td>{{b.nombre}} {{b.apellido}}</td>
+                    <td>{{b.codjor}}</td>
+                    <td>{{b.codjor}}</td>
+                    <td>{{b.hora | date: 'short'}}</td> -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

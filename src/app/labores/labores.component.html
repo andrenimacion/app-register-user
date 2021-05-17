@@ -1,0 +1,23 @@
+<div class="titleLab">
+    <mat-icon> request_page </mat-icon>
+    Tabla de valor por labor </div>
+<table class="table table-success table-hover table-striped table-sm">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">Cod. Lab</th>
+            <th scope="col">Nomlab</th>
+            <th scope="col">Turno_bio</th>
+            <th scope="col">Prelab</th>
+            <th scope="col">Unilab</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let a of arrLab">
+            <th scope="row">{{a.codlab}}</th>
+            <td>{{a.nomlab}}</td>
+            <td>{{a.turno_bio}}</td>
+            <td>$...{{a.prelab}}</td>
+            <td>{{a.unilab}}</td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,36 @@
+.contsQR {
+    /* width: 300px;
+    height: 280px; */
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#codJor {
+    width: 300px;
+    font-weight: 400;
+}
+
+video {
+    width: 300px !important;
+    height: 280px !important;
+}
+
+canvas {
+    border-radius: 5px;
+    animation: borderAnim ease-in-out 3s infinite;
+}
+
+@keyframes borderAnim {
+    0% {
+        box-shadow: 0px 0px 5px rgba(171, 252, 211, 0);
+    }
+    80% {
+        box-shadow: 0px 0px 25px rgb(128, 225, 64);
+    }
+    100% {
+        box-shadow: 0px 0px 5px rgba(182, 255, 163, 0);
+    }
+}

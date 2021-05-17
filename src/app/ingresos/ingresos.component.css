@@ -1,0 +1,70 @@
+table {
+    font-size: 10pt;
+}
+
+.titleLab {
+    /* padding: 15px; */
+    float: right;
+    width: 220px;
+    text-align: center;
+    height: 40px;
+    padding: 10px;
+    background-color: rgb(40, 220, 85);
+    color: white;
+    display: flex;
+    align-items: flex-end;
+}
+
+.dashboardPersonal {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.dash {
+    border: solid 1px gray;
+    border-radius: 5px;
+    width: 48%;
+}
+
+.dash:hover {
+    transition: ease all 0.5s;
+}
+
+@media screen and (max-width: 600px) {
+    .dash {
+        width: 100%;
+    }
+}
+
+.titleHeadLeft {
+    background-color: #444;
+    color: whitesmoke;
+    padding: 10px;
+    display: flex;
+    justify-content: stretch;
+    align-items: center;
+    color: yellowgreen;
+}
+
+
+/* .tE {
+    display: flex;
+    /* justify-content: center;
+    align-items: center;
+} */
+
+.titleHeadRight {
+    background-color: #444;
+    color: whitesmoke;
+    padding: 10px;
+    display: flex;
+    justify-content: stretch;
+    align-items: center;
+    color: rgb(235, 128, 5);
+}
+
+#wE {
+    margin-top: 5px;
+}
